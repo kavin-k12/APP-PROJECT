@@ -1,0 +1,440 @@
+/* ==========================================================================
+   CAMPUS CONNECT 2030 — CORE SCI-FI DESIGN SYSTEM
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-cosmic-black: #050711;
+  --bg-deep-navy: #0a1024;
+  --bg-surface: rgba(10, 16, 36, 0.72);
+  --bg-surface-elevated: rgba(15, 23, 53, 0.85);
+  --bg-surface-hover: rgba(22, 33, 72, 0.9);
+  
+  --neon-cyan: #00e5ff;
+  --neon-cyan-glow: rgba(0, 229, 255, 0.35);
+  --neon-cyan-subtle: rgba(0, 229, 255, 0.15);
+  
+  --neon-violet: #8b5cf6;
+  --neon-violet-glow: rgba(139, 92, 246, 0.35);
+  --neon-violet-subtle: rgba(139, 92, 246, 0.15);
+
+  --accent-gold: #fbbf24;
+  --accent-emerald: #10b981;
+  --accent-ruby: #f43f5e;
+  
+  --text-primary: #eaf4ff;
+  --text-secondary: #9ca9c5;
+  --text-muted: #627293;
+  --text-dim: #3d4a66;
+
+  --border-glass: rgba(0, 229, 255, 0.22);
+  --border-glass-subtle: rgba(156, 169, 197, 0.15);
+  --border-glass-violet: rgba(139, 92, 246, 0.3);
+
+  /* Fonts */
+  --font-display: 'Orbitron', -apple-system, sans-serif;
+  --font-tech: 'Rajdhani', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows & Glows */
+  --glow-cyan-sm: 0 0 10px rgba(0, 229, 255, 0.3);
+  --glow-cyan-md: 0 0 20px rgba(0, 229, 255, 0.45);
+  --glow-cyan-lg: 0 0 35px rgba(0, 229, 255, 0.6);
+  --glow-violet-md: 0 0 20px rgba(139, 92, 246, 0.45);
+  --shadow-panel: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
+
+  /* Transitions */
+  --trans-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --trans-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --trans-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --max-width: 1320px;
+  --header-height: 80px;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-cosmic-black);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background Canvas Layer */
+#space-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Main Content Layer */
+.app-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.tech-text {
+  font-family: var(--font-tech);
+  letter-spacing: 0.08em;
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 60%, var(--neon-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-violet) 80%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sci-Fi Glass Panels */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  box-shadow: var(--shadow-panel);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--trans-normal);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  opacity: 0.6;
+}
+
+.glass-panel-violet {
+  border-color: var(--border-glass-violet);
+}
+
+.glass-panel-violet::before {
+  background: linear-gradient(90deg, transparent, var(--neon-violet), transparent);
+}
+
+.glass-panel:hover {
+  border-color: rgba(0, 229, 255, 0.45);
+  box-shadow: var(--shadow-panel), 0 0 25px rgba(0, 229, 255, 0.12);
+}
+
+/* Corner Accents for Futuristic UI */
+.hud-corners {
+  position: relative;
+}
+
+.hud-corners::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid var(--neon-cyan);
+  border-right: 2px solid var(--neon-cyan);
+  pointer-events: none;
+}
+
+.hud-corners-tl::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--neon-cyan);
+  border-left: 2px solid var(--neon-cyan);
+  pointer-events: none;
+}
+
+/* Futuristic Scanline Effect Overlay */
+.scanline-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(18, 16, 38, 0) 50%, rgba(0, 229, 255, 0.02) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Navigation Bar */
+.navbar-futuristic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(5, 7, 17, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-glass-subtle);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: all var(--trans-normal);
+}
+
+.navbar-futuristic.scrolled {
+  background: rgba(5, 7, 17, 0.92);
+  border-bottom-color: var(--border-glass);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.brand-symbol {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--neon-cyan);
+  border-radius: 50%;
+  animation: orbitRotate 8s linear infinite;
+}
+
+.brand-core {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-violet));
+  border-radius: 50%;
+  box-shadow: var(--glow-cyan-md);
+}
+
+@keyframes orbitRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.brand-tag {
+  font-size: 0.65rem;
+  font-family: var(--font-tech);
+  color: var(--neon-cyan);
+  background: rgba(0, 229, 255, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  margin-left: 6px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-tech);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 0;
+  transition: color var(--trans-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon-cyan);
+  box-shadow: var(--glow-cyan-sm);
+  transition: width var(--trans-normal);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--neon-cyan);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Futuristic Buttons */
+.btn-futuristic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--trans-normal);
+  border: none;
+  outline: none;
+}
+
+.btn-primary-cyan {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(139, 92, 246, 0.3));
+  border: 1px solid var(--neon-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+}
+
+.btn-primary-cyan:hover {
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.4), rgba(139, 92, 246, 0.5));
+  box-shadow: var(--glow-cyan-md);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-primary-cyan:active {
+  transform: translateY(0);
+}
+
+.btn-secondary-space {
+  background: rgba(10, 16, 36, 0.8);
+  border: 1px solid var(--border-glass-subtle);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary-space:hover {
+  border-color: var(--neon-violet);
+  box-shadow: var(--glow-violet-md);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-glow-pulse {
+  animation: btnPulse 3s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.25); }
+  50% { box-shadow: 0 0 28px rgba(0, 229, 255, 0.55); }
+}
+
+/* Mobile Navigation Toggle */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--neon-cyan);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Lab — Holographic Source Code Showcase — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="Explore real Spring Boot architectures, JPA persistence, algorithms, and pseudocode powering Campus Connect 2030.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/javalab.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">JAVA LAB</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="resources.html" class="nav-link">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link active">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="campus.html" class="btn-futuristic btn-secondary-space">CAMPUS PORTAL</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="javalab-container">
+      <!-- Java Lab Hero Header -->
+      <div class="javalab-header">
+        <span class="javalab-tag">HOLOGRAPHIC PROGRAMMING LABORATORY</span>
+        <h1 class="javalab-title text-gradient-cyan">BEHIND THE UNIVERSE</h1>
+        <p class="javalab-subtitle">
+          Explore the real Java Spring Boot systems, algorithms, and pseudocode powering Campus Connect.
+        </p>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="javalab-filter-bar">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="javalab-search-input" placeholder="Search systems modules, source files, or keywords...">
+        </div>
+        <div style="font-family: var(--font-tech); color: var(--text-muted); font-size: 0.9rem;">
+          8 ENTERPRISE JAVA MODULES AVAILABLE
+        </div>
+      </div>
+
+      <!-- 8 Modules Grid (Initial Overview Screen) -->
+      <div id="javalab-cards-grid" class="module-cards-grid">
+        <!-- Rendered via javalab.js -->
+      </div>
+
+      <!-- ==========================================================================
+           INTERACTIVE CODE VIEWER WORKSTATION (TWO-PANEL IDE LAYOUT)
+           ========================================================================== -->
+      <div id="code-viewer-workstation" class="code-viewer-workstation hud-corners hud-corners-tl">
+        <!-- Top Control Bar -->
+        <div class="workstation-topbar">
+          <div class="workstation-title-group">
+            <button type="button" class="btn-back-modules" id="btn-back-modules">
+              ← BACK TO MODULES
+            </button>
+            <div class="file-info-badge" id="workstation-file-badge">
+              src/main/java/com/campusconnect/service/AuthService.java
+            </div>
+          </div>
+
+          <div class="workstation-tabs">
+            <button type="button" class="tab-btn active" data-tab="java">JAVA CODE</button>
+            <button type="button" class="tab-btn" data-tab="pseudocode">PSEUDOCODE</button>
+            <button type="button" class="tab-btn" data-tab="explanation">EXPLANATION</button>
+          </div>
+        </div>
+
+        <!-- Main Body: Two Panels -->
+        <div class="workstation-body">
+          <!-- Left Panel: Module Navigation List -->
+          <aside class="workstation-sidebar">
+            <div class="sidebar-heading">SYSTEMS MODULES</div>
+            <ul class="module-nav-list" id="workstation-module-list">
+              <!-- Rendered via javalab.js -->
+            </ul>
+
+            <div class="sidebar-heading">CORE TECH STACK</div>
+            <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); line-height: 1.8;">
+              <div>☕ Java 21 LTS</div>
+              <div>🌱 Spring Boot 3.3.4</div>
+              <div>🐬 MySQL Connector/J</div>
+              <div>🛡️ Spring Security 6</div>
+              <div>📦 Hibernate JPA</div>
+            </div>
+          </aside>
+
+          <!-- Right Panel: Code & Pseudocode Viewports -->
+          <div class="workstation-main">
+            <div class="editor-action-bar">
+              <span class="endpoint-chip" id="workstation-endpoint-chip">POST /api/auth/register</span>
+              <button type="button" class="btn-copy-code" id="btn-copy-code">
+                📋 COPY CODE
+              </button>
+            </div>
+
+            <!-- Tab 1: Syntax Highlighted Java Code -->
+            <div id="code-editor-viewport" class="editor-viewport">
+              <div class="code-container">
+                <div class="line-numbers" id="code-line-numbers"></div>
+                <div class="code-lines" id="code-lines-content"></div>
+              </div>
+            </div>
+
+            <!-- Tab 2: Plain-English Pseudocode -->
+            <div id="pseudocode-viewport" class="pseudocode-viewport">
+              <div class="pseudocode-block" id="pseudocode-content-block"></div>
+            </div>
+
+            <!-- Tab 3: Deep Technical Explanation -->
+            <div id="explanation-viewport" class="explanation-viewport">
+              <h3 class="explanation-title" id="explanation-module-title"></h3>
+              <div class="explanation-body" id="explanation-module-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dedicated Project Team Credit Area in Java Lab (MANDATORY REQUIREMENT C) -->
+      <div class="javalab-team-credits">
+        <div class="javalab-team-title">
+          <span>🛠️</span> CAMPUS CONNECT PROJECT TEAM
+        </div>
+        <div class="javalab-team-members">
+          <div class="javalab-member-item">
+            Sriharan V A <span>[RA2511003040029]</span>
+          </div>
+          <div class="javalab-member-item">
+            Shivesh A <span>[RA2511003040028]</span>
+          </div>
+          <div class="javalab-member-item">
+            KAVIN K <span>[RA2511003040067]</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Verified Spring Boot Enterprise Codebase.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/javalab.js"></script>
+</body>
+</html>

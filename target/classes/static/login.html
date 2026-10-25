@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Station Authentication — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="Futuristic Holographic Authentication for Campus Connect 2030.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">AUTHENTICATION</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <a href="register.html" class="btn-futuristic btn-primary-cyan">INITIALIZE NEW IDENTITY</a>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding: 130px 24px 80px; max-width: 520px; margin: 0 auto; width: 100%;">
+      <div class="glass-panel hud-corners hud-corners-tl" style="padding: 44px 36px; position: relative;">
+        <div class="scanline-overlay"></div>
+
+        <div style="text-align: center; margin-bottom: 32px;">
+          <div style="width: 60px; height: 60px; margin: 0 auto 18px; border-radius: 50%; background: rgba(0, 229, 255, 0.1); border: 1.5px solid var(--neon-cyan); display: flex; align-items: center; justify-content: center; box-shadow: var(--glow-cyan-sm);">
+            <span style="font-size: 1.8rem;">🔐</span>
+          </div>
+          <span class="badge-neon badge-cyan" style="margin-bottom: 10px;">SECURE PROTOCOL • SPRING SECURITY</span>
+          <h2 style="font-size: 1.8rem; margin-top: 8px;" class="text-gradient-cyan">HOLOGRAPHIC AUTHENTICATION</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 6px;">
+            Enter your college credentials to access the 2030 Campus Universe.
+          </p>
+        </div>
+
+        <!-- Error Alert Box -->
+        <div id="login-error-alert" style="display: none; padding: 12px 18px; margin-bottom: 24px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--accent-ruby); border-radius: 8px; color: var(--accent-ruby); font-family: var(--font-tech); font-size: 0.92rem;">
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">College Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="e.g. sv0029@srmist.edu.in" required autocomplete="username">
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <label class="form-label" for="login-password" style="margin-bottom: 0;">Passkey / Password</label>
+              <a href="#" style="font-family: var(--font-tech); font-size: 0.82rem; color: var(--neon-cyan); text-decoration: none;" onclick="event.preventDefault(); alert('Subspace Recovery Protocol: Password recovery requires an SMTP gateway. For local evaluation, please register a new student cadet identity.');">
+                Forgot passkey?
+              </a>
+            </div>
+            <div class="input-with-icon">
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••••••" required autocomplete="current-password">
+              <button type="button" class="input-icon-btn password-toggle-btn" data-target="login-password">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; font-size: 0.88rem; color: var(--text-secondary);">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none;">
+              <input type="checkbox" id="login-remember" checked style="accent-color: var(--neon-cyan);">
+              Maintain secure session
+            </label>
+            <span class="badge-neon badge-violet">256-BIT BCRYPT</span>
+          </div>
+
+          <button type="submit" class="btn-futuristic btn-primary-cyan btn-glow-pulse" id="btn-login-submit" style="width: 100%; font-size: 0.95rem; padding: 15px;">
+            AUTHENTICATE & ENTER →
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+          Not registered in this universe?
+          <a href="register.html" style="color: var(--neon-cyan); font-weight: 700; text-decoration: none; margin-left: 6px;">
+            Initialize Identity
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Spring Boot & Spring Security Powered.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

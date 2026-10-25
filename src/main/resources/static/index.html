@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMPUS CONNECT — Futuristic Campus Web Application (2030 Edition)</title>
+  <meta name="description" content="Campus Connect 2030 — One connected universe for ideas, communities, experiences, and the future of student life. Powered by Spring Boot and Java 21.">
+  
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- External Libraries: Three.js and GSAP via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js 3D Space Canvas Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo" id="nav-brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">2030 ED.</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="resources.html" class="nav-link">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="login.html" class="btn-futuristic btn-secondary-space" id="nav-auth-btn">LOGIN</a>
+          <a href="register.html" class="btn-futuristic btn-primary-cyan btn-glow-pulse" id="nav-join-btn">JOIN THE UNIVERSE</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Landing Content -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-celestial-container" id="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            ORBITAL STATION 2030 • ACTIVE TELEMETRY
+          </div>
+          <h1 class="hero-title text-gradient-cyan">CAMPUS CONNECT</h1>
+          <div class="hero-subtitle">YOUR CAMPUS. YOUR UNIVERSE.</div>
+          <p class="hero-description">
+            One connected universe for ideas, communities, experiences, and the future of student life.
+          </p>
+          <div class="hero-actions">
+            <a href="register.html" class="btn-futuristic btn-primary-cyan btn-glow-pulse" id="btn-enter-universe">
+              ENTER THE UNIVERSE →
+            </a>
+            <a href="campus.html" class="btn-futuristic btn-secondary-space" id="btn-explore-campus">
+              EXPLORE CAMPUS
+            </a>
+          </div>
+
+          <!-- Futuristic Statistics Strip -->
+          <div class="stats-strip">
+            <div class="stat-item">
+              <div class="stat-num">12,400+</div>
+              <div class="stat-label">Active Cadets</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">48</div>
+              <div class="stat-label">Space Communities</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">99.98%</div>
+              <div class="stat-label">System Uptime</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">Spring 3.3</div>
+              <div class="stat-label">Java Core Backend</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: Discover the Campus Universe -->
+      <section style="padding: 100px 24px; max-width: var(--max-width); margin: 0 auto;" id="section-discover">
+        <div class="section-header">
+          <span class="section-tagline">ARCHITECTURE 2030</span>
+          <h2 class="section-title text-gradient-cyan">DISCOVER THE CAMPUS UNIVERSE</h2>
+          <p class="section-description">
+            Operating as an interconnected orbital academic station, Campus Connect bridges students, faculty, and systems across physical and digital frontiers.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="portal-card">
+            <div class="portal-card-icon">🌌</div>
+            <h3 class="portal-card-title">Interstellar Navigation</h3>
+            <p class="portal-card-desc">Seamless access to events, academic notes, community guilds, and real-time campus broadcasts across all orbital pods.</p>
+            <div class="portal-card-footer">
+              <span class="badge-neon badge-cyan">SYSTEM OPERATIONAL</span>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">⚡</div>
+            <h3 class="portal-card-title">Java Spring Boot Core</h3>
+            <p class="portal-card-desc">Enterprise-grade backend running Java 21, Hibernate JPA persistence, BCrypt cryptography, and reactive REST endpoints.</p>
+            <div class="portal-card-footer">
+              <span class="badge-neon badge-violet">ENTERPRISE SECURITY</span>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">🛡️</div>
+            <h3 class="portal-card-title">Identity Initialization</h3>
+            <p class="portal-card-desc">Next-generation multi-stage student registration wizard with automated verification checks and cryptographic passkeys.</p>
+            <div class="portal-card-footer">
+              <span class="badge-neon badge-emerald">AUTHENTICATED ACCESS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Explore Campus Portals -->
+      <section style="padding: 80px 24px; max-width: var(--max-width); margin: 0 auto;" id="section-portals">
+        <div class="section-header">
+          <span class="section-tagline">NAVIGATION SECTORS</span>
+          <h2 class="section-title text-gradient-cyan">ORBITAL CAMPUS PORTALS</h2>
+          <p class="section-description">
+            Direct subspace routing to five high-priority academic and student operations sectors.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="portal-card">
+            <div class="portal-card-icon">🗓️</div>
+            <h3 class="portal-card-title">Events Sector</h3>
+            <p class="portal-card-desc">Autonomous hackathons, symposiums, and engineering expos with transactional seat reservation.</p>
+            <div class="portal-card-footer">
+              <a href="events.html" class="btn-futuristic btn-secondary-space" style="width: 100%;">ACCESS EVENTS →</a>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">🤝</div>
+            <h3 class="portal-card-title">Communities Guilds</h3>
+            <p class="portal-card-desc">Join student guilds across AI, Robotics, Spatial Design, and Astrophotography.</p>
+            <div class="portal-card-footer">
+              <a href="communities.html" class="btn-futuristic btn-secondary-space" style="width: 100%;">EXPLORE GUILDS →</a>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">📚</div>
+            <h3 class="portal-card-title">Academic Resources</h3>
+            <p class="portal-card-desc">Departmental lecture telemetry, past exam guides, and downloadable engineering notes.</p>
+            <div class="portal-card-footer">
+              <a href="resources.html" class="btn-futuristic btn-secondary-space" style="width: 100%;">ACCESS ARCHIVES →</a>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">🔍</div>
+            <h3 class="portal-card-title">Lost & Found Subspace</h3>
+            <p class="portal-card-desc">Automated recovery log for missing ID keys, electronic sensors, and personal station items.</p>
+            <div class="portal-card-footer">
+              <a href="lost-found.html" class="btn-futuristic btn-secondary-space" style="width: 100%;">TRACK ITEMS →</a>
+            </div>
+          </div>
+
+          <div class="portal-card">
+            <div class="portal-card-icon">📢</div>
+            <h3 class="portal-card-title">Station Announcements</h3>
+            <p class="portal-card-desc">Real-time official academic notices, shuttle dock updates, and campus bulletins.</p>
+            <div class="portal-card-footer">
+              <a href="campus.html" class="btn-futuristic btn-secondary-space" style="width: 100%;">VIEW BROADCASTS →</a>
+            </div>
+          </div>
+
+          <div class="portal-card" style="border-color: var(--neon-cyan);">
+            <div class="portal-card-icon" style="background: rgba(0, 229, 255, 0.2);">💻</div>
+            <h3 class="portal-card-title">Interactive Java Lab</h3>
+            <p class="portal-card-desc">Interactive holographic code viewer showcasing real Spring Boot controllers, services, and algorithms.</p>
+            <div class="portal-card-footer">
+              <a href="java-lab.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">LAUNCH JAVA LAB →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Explore the Java Lab Preview -->
+      <section style="padding: 90px 24px; max-width: var(--max-width); margin: 0 auto;" id="section-javalab-preview">
+        <div class="glass-panel" style="padding: 48px; border-color: var(--border-glass-violet);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+            <div>
+              <span class="badge-neon badge-violet" style="margin-bottom: 16px;">ACADEMIC SHOWCASE</span>
+              <h2 style="font-size: 2.4rem; margin-bottom: 16px;" class="text-gradient-violet">BEHIND THE UNIVERSE</h2>
+              <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-bottom: 24px;">
+                Campus Connect is backed by real, professional Java code. Explore our holographic developer workstation featuring 8 core Spring Boot modules with syntax highlighting, line numbers, plain-English pseudocode, and copy buttons.
+              </p>
+              <a href="java-lab.html" class="btn-futuristic btn-primary-cyan btn-glow-pulse">
+                ENTER JAVA LAB SHOWCASE →
+              </a>
+            </div>
+            <div style="background: #060914; border: 1px solid var(--border-glass); border-radius: 12px; padding: 24px; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); box-shadow: var(--shadow-panel);">
+              <div style="color: var(--neon-cyan); margin-bottom: 8px;">// AuthService.java — Registration Logic</div>
+              <div style="color: #ff7b72;">@Transactional</div>
+              <div><span style="color: #ff7b72;">public</span> Student register(RegistrationRequest req) {</div>
+              <div style="padding-left: 20px;"><span style="color: #ff7b72;">if</span> (repo.existsByEmail(req.getEmail())) {</div>
+              <div style="padding-left: 40px; color: #a5d6ff;">throw new DuplicateResourceException("...");</div>
+              <div style="padding-left: 20px;">}</div>
+              <div style="padding-left: 20px;">student.setPasswordHash(encoder.encode(req.getPassword()));</div>
+              <div style="padding-left: 20px;"><span style="color: #ff7b72;">return</span> repo.save(student);</div>
+              <div>}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Official Team Section (MANDATORY REQUIREMENT) -->
+      <section style="padding: 100px 24px; max-width: var(--max-width); margin: 0 auto;" id="section-team">
+        <div class="section-header">
+          <span class="section-tagline">PROJECT CREATORS</span>
+          <h2 class="section-title text-gradient-cyan">THE TEAM BEHIND THE UNIVERSE</h2>
+          <p class="section-description">
+            The official project developers engineering the Campus Connect 2030 platform.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">🚀</span>
+            </div>
+            <h3 class="team-member-name">Sriharan V A</h3>
+            <div class="team-member-reg">RA2511003040029</div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">⚡</span>
+            </div>
+            <h3 class="team-member-name">Shivesh A</h3>
+            <div class="team-member-reg">RA2511003040028</div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">🛰️</span>
+            </div>
+            <h3 class="team-member-name">KAVIN K</h3>
+            <div class="team-member-reg">RA2511003040067</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Final Join Call to Action -->
+      <section style="padding: 80px 24px 120px; text-align: center; max-width: 800px; margin: 0 auto;">
+        <div class="glass-panel" style="padding: 56px 36px; border-color: var(--neon-cyan);">
+          <h2 style="font-size: 2.4rem; margin-bottom: 16px;" class="text-gradient-cyan">READY TO INITIALIZE YOUR IDENTITY?</h2>
+          <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 32px;">
+            Step aboard Campus Connect 2030 and join thousands of students exploring ideas, engineering solutions, and building the future.
+          </p>
+          <a href="register.html" class="btn-futuristic btn-primary-cyan btn-glow-pulse" style="font-size: 0.95rem; padding: 14px 32px;">
+            BEGIN INITIALIZATION WIZARD →
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Futuristic Footer -->
+    <footer class="footer-futuristic">
+      <div class="footer-content">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-symbol">
+              <div class="brand-orbit"></div>
+              <div class="brand-core"></div>
+            </div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; max-width: 380px;">
+            Futuristic Space Station Campus Web Application (2030 Edition). Powered by Java 21, Spring Boot, MySQL, and modern Web APIs.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="campus.html">Campus Universe</a></li>
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="communities.html">Student Communities</a></li>
+            <li><a href="resources.html">Academic Resources</a></li>
+            <li><a href="lost-found.html">Lost & Found</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>DEVELOPER LAB</h4>
+          <ul class="footer-links">
+            <li><a href="java-lab.html">Java Lab Showcase</a></li>
+            <li><a href="java-lab.html">Pseudocode Archive</a></li>
+            <li><a href="about.html">Architecture & Team</a></li>
+            <li><a href="login.html">Station Authentication</a></li>
+            <li><a href="register.html">Identity Wizard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>PROJECT TEAM CREDITS</h4>
+          <p class="footer-team-line" style="margin-bottom: 6px;"><strong>Sriharan V A</strong> — RA2511003040029</p>
+          <p class="footer-team-line" style="margin-bottom: 6px;"><strong>Shivesh A</strong> — RA2511003040028</p>
+          <p class="footer-team-line" style="margin-bottom: 14px;"><strong>KAVIN K</strong> — RA2511003040067</p>
+          <span class="badge-neon badge-cyan">COLLEGE JAVA PROJECT</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. All celestial rights reserved.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/campus.js"></script>
+</body>
+</html>

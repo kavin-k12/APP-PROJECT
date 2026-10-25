@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Campus Universe — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="Central futuristic student operations hub for Campus Connect 2030.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">PORTAL</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link active">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="resources.html" class="nav-link">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <div id="nav-user-badge" class="badge-neon badge-cyan" style="display: none; padding: 6px 14px;">
+            <span>👤</span>
+            <span id="nav-user-name">Cadet</span>
+            <span id="nav-user-reg" style="font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.8;"></span>
+          </div>
+          <a href="login.html" class="btn-futuristic btn-secondary-space" id="nav-auth-btn">LOGIN</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Campus Portal Content -->
+    <main style="padding: 120px 24px 80px; max-width: var(--max-width); margin: 0 auto; width: 100%;">
+      
+      <!-- Welcome Header -->
+      <div style="margin-bottom: 48px; text-align: center;">
+        <span class="badge-neon badge-cyan" style="margin-bottom: 12px;">ACTIVE COMMAND SECTOR</span>
+        <h1 class="text-gradient-cyan" style="font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 12px;">
+          YOUR CAMPUS UNIVERSE
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 720px; margin: 0 auto;">
+          Welcome to the central orbital station portal. Monitor station announcements, register for deep space events, connect with guilds, and track campus telemetry.
+        </p>
+      </div>
+
+      <!-- Quick Action Portals Grid -->
+      <div class="grid-3" style="margin-bottom: 64px;">
+        <!-- Portal 1: Events -->
+        <div class="portal-card">
+          <div class="portal-card-icon">🗓️</div>
+          <span class="badge-neon badge-cyan" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 01</span>
+          <h3 class="portal-card-title">Events Sector</h3>
+          <p class="portal-card-desc">
+            Explore hackathons, autonomous robotics symposiums, and engineering expos with live seat reservation.
+          </p>
+          <div class="portal-card-footer">
+            <a href="events.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">
+              VIEW ALL EVENTS →
+            </a>
+          </div>
+        </div>
+
+        <!-- Portal 2: Communities -->
+        <div class="portal-card">
+          <div class="portal-card-icon">🤝</div>
+          <span class="badge-neon badge-violet" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 02</span>
+          <h3 class="portal-card-title">Guild Communities</h3>
+          <p class="portal-card-desc">
+            Coding, Robotics, Design, Astrophotography, and Cybernetics student organizations.
+          </p>
+          <div class="portal-card-footer">
+            <a href="communities.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">
+              JOIN GUILDS →
+            </a>
+          </div>
+        </div>
+
+        <!-- Portal 3: Academic Resources -->
+        <div class="portal-card">
+          <div class="portal-card-icon">📚</div>
+          <span class="badge-neon badge-gold" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 03</span>
+          <h3 class="portal-card-title">Academic Telemetry</h3>
+          <p class="portal-card-desc">
+            Subject-wise lecture archives, semester study guides, and downloadable engineering notes.
+          </p>
+          <div class="portal-card-footer">
+            <a href="resources.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">
+              OPEN REPOSITORY →
+            </a>
+          </div>
+        </div>
+
+        <!-- Portal 4: Lost & Found -->
+        <div class="portal-card">
+          <div class="portal-card-icon">🔍</div>
+          <span class="badge-neon badge-emerald" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 04</span>
+          <h3 class="portal-card-title">Lost & Found Subspace</h3>
+          <p class="portal-card-desc">
+            Report and locate displaced gear, keycards, and electronics across campus sectors.
+          </p>
+          <div class="portal-card-footer">
+            <a href="lost-found.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">
+              TRACK ITEMS →
+            </a>
+          </div>
+        </div>
+
+        <!-- Portal 5: Java Lab Showcase -->
+        <div class="portal-card" style="border-color: var(--neon-cyan);">
+          <div class="portal-card-icon" style="background: rgba(0, 229, 255, 0.2);">💻</div>
+          <span class="badge-neon badge-cyan" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 05</span>
+          <h3 class="portal-card-title">Java Lab Hologram</h3>
+          <p class="portal-card-desc">
+            Interactive source code showcase featuring 8 Spring Boot modules and pseudocode.
+          </p>
+          <div class="portal-card-footer">
+            <a href="java-lab.html" class="btn-futuristic btn-primary-cyan" style="width: 100%;">
+              LAUNCH WORKSTATION →
+            </a>
+          </div>
+        </div>
+
+        <!-- Portal 6: Station Announcements -->
+        <div class="portal-card">
+          <div class="portal-card-icon">📢</div>
+          <span class="badge-neon badge-violet" style="align-self: flex-start; margin-bottom: 12px;">PORTAL 06</span>
+          <h3 class="portal-card-title">Station Broadcasts</h3>
+          <p class="portal-card-desc">
+            Official orbital advisories, semester schedules, and university notices.
+          </p>
+          <div class="portal-card-footer">
+            <a href="#announcements-section" class="btn-futuristic btn-secondary-space" style="width: 100%;">
+              SCROLL TO NOTICES ↓
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campus Announcements Stream -->
+      <section id="announcements-section" style="margin-top: 60px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <span class="badge-neon badge-cyan">PORTAL 5 • REAL-TIME FEED</span>
+            <h2 style="font-size: 2rem; margin-top: 8px;" class="text-gradient-cyan">CAMPUS ANNOUNCEMENTS</h2>
+          </div>
+          <div id="announcements-data-notice" style="font-family: var(--font-tech); font-size: 0.85rem;"></div>
+        </div>
+
+        <div id="announcements-container">
+          <!-- Dynamic Announcements Loaded via campus.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Connected to Java Spring Boot Core.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/campus.js"></script>
+</body>
+</html>

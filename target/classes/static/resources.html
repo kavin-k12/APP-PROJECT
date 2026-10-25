@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Resources — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="Subject-wise study notes, semester guides, and academic archives.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">RESOURCES</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="resources.html" class="nav-link active">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <div id="nav-user-badge" class="badge-neon badge-cyan" style="display: none; padding: 6px 14px;">
+            <span>👤</span>
+            <span id="nav-user-name">Cadet</span>
+          </div>
+          <a href="login.html" class="btn-futuristic btn-secondary-space" id="nav-auth-btn">LOGIN</a>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding: 120px 24px 80px; max-width: var(--max-width); margin: 0 auto; width: 100%;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="badge-neon badge-gold" style="margin-bottom: 12px;">PORTAL 03 • ARCHIVES</span>
+          <h1 class="text-gradient-cyan" style="font-size: 2.8rem; margin-top: 8px;">ACADEMIC RESOURCES</h1>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 680px; margin-top: 8px;">
+            Filter and retrieve official lecture notes, curriculum repositories, and engineering guides.
+          </p>
+        </div>
+        <div id="resources-data-notice" style="font-family: var(--font-tech); font-size: 0.88rem;"></div>
+      </div>
+
+      <!-- Filters Strip -->
+      <div class="glass-panel" style="padding: 20px 28px; margin-bottom: 36px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 220px;">
+          <label class="form-label" for="filter-dept" style="margin-bottom: 4px;">Department</label>
+          <select id="filter-dept" class="form-select" onchange="CampusAPI.getResources(this.value, document.getElementById('filter-sem').value)">
+            <option value="">All Departments</option>
+            <option value="Computer Science">Computer Science & Engineering</option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Aerospace Engineering">Aerospace Engineering</option>
+          </select>
+        </div>
+
+        <div style="flex: 1; min-width: 220px;">
+          <label class="form-label" for="filter-sem" style="margin-bottom: 4px;">Semester</label>
+          <select id="filter-sem" class="form-select" onchange="CampusAPI.getResources(document.getElementById('filter-dept').value, this.value)">
+            <option value="">All Semesters</option>
+            <option value="Semester 4">Semester 4</option>
+            <option value="Semester 5">Semester 5</option>
+            <option value="Semester 6">Semester 6</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Dynamic Resources Grid -->
+      <div id="resources-container" class="grid-2">
+        <!-- Loaded via campus.js -->
+      </div>
+    </main>
+
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Academic telemetry backed by Spring Data JPA.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/campus.js"></script>
+</body>
+</html>

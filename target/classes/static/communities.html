@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communities & Guilds — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="Discover student guilds across AI, Robotics, Spatial Design, and Astrophotography.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">COMMUNITIES</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link active">Communities</a></li>
+            <li><a href="resources.html" class="nav-link">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <div id="nav-user-badge" class="badge-neon badge-cyan" style="display: none; padding: 6px 14px;">
+            <span>👤</span>
+            <span id="nav-user-name">Cadet</span>
+          </div>
+          <a href="login.html" class="btn-futuristic btn-secondary-space" id="nav-auth-btn">LOGIN</a>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding: 120px 24px 80px; max-width: var(--max-width); margin: 0 auto; width: 100%;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="badge-neon badge-violet" style="margin-bottom: 12px;">PORTAL 02 • GUILDS</span>
+          <h1 class="text-gradient-cyan" style="font-size: 2.8rem; margin-top: 8px;">STUDENT COMMUNITIES</h1>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 680px; margin-top: 8px;">
+            Collaborative societies specializing in Coding, Quantum Robotics, Spatial Design, and Astrophotography.
+          </p>
+        </div>
+        <div id="clubs-data-notice" style="font-family: var(--font-tech); font-size: 0.88rem;"></div>
+      </div>
+
+      <!-- Communities Dynamic Grid -->
+      <div id="clubs-container" class="grid-2">
+        <!-- Loaded via campus.js -->
+      </div>
+    </main>
+
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Student guilds powered by Spring Boot backend.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/campus.js"></script>
+</body>
+</html>

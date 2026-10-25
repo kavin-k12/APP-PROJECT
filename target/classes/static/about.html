@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Project Team — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="About the Campus Connect 2030 project, architecture, and official student development team.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">ABOUT</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="resources.html" class="nav-link">Resources</a></li>
+            <li><a href="lost-found.html" class="nav-link">Lost & Found</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link active">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="register.html" class="btn-futuristic btn-primary-cyan">JOIN UNIVERSE</a>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding: 120px 24px 80px; max-width: var(--max-width); margin: 0 auto; width: 100%;">
+      
+      <!-- Project Mission -->
+      <section style="margin-bottom: 72px; text-align: center;">
+        <span class="badge-neon badge-cyan" style="margin-bottom: 12px;">MISSION PROFILE • YEAR 2030</span>
+        <h1 class="text-gradient-cyan" style="font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 16px;">
+          CAMPUS CONNECT 2030
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 780px; margin: 0 auto; line-height: 1.8;">
+          Campus Connect is a comprehensive futuristic university web application built to simulate an orbital academic station in the year 2030. The system demonstrates enterprise Java Spring Boot backend engineering, transactional persistence, Spring Security cryptography, and immersive Three.js spatial web design.
+        </p>
+      </section>
+
+      <!-- Technical Architecture Overview -->
+      <section class="grid-3" style="margin-bottom: 80px;">
+        <div class="glass-panel" style="padding: 32px;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🌱</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Spring Boot & Java 21</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Built with Java 21 LTS and Spring Boot 3.3.4, implementing Spring Web MVC, Spring Data JPA, Hibernate, Bean Validation, and RESTful JSON controllers.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 32px;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🛡️</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Spring Security & BCrypt</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Protected by Spring Security filter chains with BCrypt password hashing. Passwords are never stored in plain text and hashes are strictly excluded from client projections.
+          </p>
+        </div>
+
+        <div class="glass-panel" style="padding: 32px;">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🐬</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">MySQL & JPA Persistence</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Structured relational database schema with unique constraints, foreign keys, indexes, and transactional isolation preventing overbooking or duplicate registrations.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           OFFICIAL PROJECT TEAM SECTION (MANDATORY REQUIREMENT B)
+           ========================================================================== -->
+      <section style="margin-top: 40px; margin-bottom: 60px;" id="team-section">
+        <div class="section-header">
+          <span class="section-tagline">COLLEGE JAVA PROJECT TEAM</span>
+          <h2 class="section-title text-gradient-cyan">THE TEAM BEHIND THE UNIVERSE</h2>
+          <p class="section-description">
+            The official development team responsible for the design, architecture, and backend implementation of Campus Connect.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">🚀</span>
+            </div>
+            <h3 class="team-member-name">Sriharan V A</h3>
+            <div class="team-member-reg">RA2511003040029</div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">⚡</span>
+            </div>
+            <h3 class="team-member-name">Shivesh A</h3>
+            <div class="team-member-reg">RA2511003040028</div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-avatar-hex">
+              <span class="team-avatar-icon">🛰️</span>
+            </div>
+            <h3 class="team-member-name">KAVIN K</h3>
+            <div class="team-member-reg">RA2511003040067</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. All celestial rights reserved.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

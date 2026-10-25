@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Initialize Your Identity — CAMPUS CONNECT 2030</title>
+  <meta name="description" content="5-Stage Futuristic Student Identity Initialization Wizard for Campus Connect 2030.">
+
+  <!-- Core Design System & Sci-Fi Styles -->
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/space.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- External Libraries: Three.js and GSAP via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Three.js 3D Space Background -->
+  <div id="space-canvas-container" class="space-viewport">
+    <div class="css-starfield"></div>
+    <div class="space-vignette"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <header class="navbar-futuristic">
+      <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-symbol">
+            <div class="brand-orbit"></div>
+            <div class="brand-core"></div>
+          </div>
+          <div>
+            <span class="brand-name">CAMPUS CONNECT</span>
+            <span class="brand-tag">INITIALIZATION</span>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="campus.html" class="nav-link">Explore Campus</a></li>
+            <li><a href="events.html" class="nav-link">Events</a></li>
+            <li><a href="communities.html" class="nav-link">Communities</a></li>
+            <li><a href="java-lab.html" class="nav-link">Java Lab</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="login.html" class="btn-futuristic btn-secondary-space">LOGIN INSTEAD</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Registration Wizard Container -->
+    <main style="padding: 120px 24px 80px; max-width: 720px; margin: 0 auto; width: 100%;" id="register-wizard-container">
+      
+      <!-- Stepper Progress Header -->
+      <div class="stepper-container">
+        <div class="stepper-line"></div>
+        <div class="stepper-progress" id="stepper-progress-line" style="width: 0%;"></div>
+
+        <div class="step-node active" id="step-node-1">1</div>
+        <div class="step-node" id="step-node-2">2</div>
+        <div class="step-node" id="step-node-3">3</div>
+        <div class="step-node" id="step-node-4">4</div>
+        <div class="step-node" id="step-node-5">5</div>
+      </div>
+
+      <!-- STAGE 1: WELCOME SCREEN -->
+      <div class="glass-panel wizard-stage-panel hud-corners hud-corners-tl" id="stage-1-panel" style="padding: 48px; text-align: center;">
+        <span class="badge-neon badge-cyan" style="margin-bottom: 20px;">STAGE 01 • COMMENCEMENT</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;" class="text-gradient-cyan">
+          EVERY UNIVERSE BEGINS WITH AN IDENTITY.
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 36px;">
+          You are about to initialize your holographic academic identity within the Campus Connect 2030 network. This cryptographic identity enables access to research pods, student guilds, and event telemetry.
+        </p>
+        <button class="btn-futuristic btn-primary-cyan btn-glow-pulse" id="btn-begin-init" style="font-size: 0.95rem; padding: 14px 36px;">
+          BEGIN INITIALIZATION →
+        </button>
+      </div>
+
+      <!-- STAGE 2: STUDENT IDENTITY -->
+      <div class="glass-panel wizard-stage-panel hud-corners hud-corners-tl" id="stage-2-panel" style="display: none; padding: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <span class="badge-neon badge-cyan">STAGE 02 • CORE TELEMETRY</span>
+            <h3 style="font-size: 1.6rem; margin-top: 8px;">STUDENT IDENTITY</h3>
+          </div>
+          <span class="badge-neon badge-violet">REQUIRED FIELDS</span>
+        </div>
+
+        <form id="stage-2-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Cadet Name</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="e.g. Sriharan V A" required>
+            <div class="form-error-msg">Cadet name must contain at least 2 characters.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">College Email Address</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="e.g. sv0029@srmist.edu.in" required>
+            <div class="form-error-msg">Please provide a valid institutional email.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-number">Student Registration Number</label>
+            <input type="text" id="reg-number" class="form-input" placeholder="e.g. RA2511003040029" required>
+            <div class="form-error-msg">Registration number must be valid (at least 5 characters).</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Passkey / Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="reg-password" class="form-input" placeholder="••••••••••••" required>
+              <button type="button" class="input-icon-btn password-toggle-btn" data-target="reg-password">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <!-- Password Strength Meter -->
+            <div class="password-meter">
+              <div class="password-meter-bar" id="pass-strength-bar"></div>
+            </div>
+            <div class="form-error-msg">Password must be at least 6 characters.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm-password">Confirm Passkey</label>
+            <div class="input-with-icon">
+              <input type="password" id="reg-confirm-password" class="form-input" placeholder="••••••••••••" required>
+              <button type="button" class="input-icon-btn password-toggle-btn" data-target="reg-confirm-password">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <div class="form-error-msg">Passwords must match.</div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 32px;">
+            <button type="button" class="btn-futuristic btn-primary-cyan" id="btn-step2-next">
+              PROCEED TO CAMPUS PROFILE →
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STAGE 3: CAMPUS PROFILE -->
+      <div class="glass-panel wizard-stage-panel hud-corners hud-corners-tl" id="stage-3-panel" style="display: none; padding: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <span class="badge-neon badge-violet">STAGE 03 • ACADEMIC SPECIALIZATION</span>
+            <h3 style="font-size: 1.6rem; margin-top: 8px;">CAMPUS PROFILE</h3>
+          </div>
+          <span class="badge-neon badge-cyan">AFFILIATION</span>
+        </div>
+
+        <form id="stage-3-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label class="form-label" for="reg-department">Academic Department</label>
+            <select id="reg-department" class="form-select">
+              <option value="Artificial Intelligence">Department of Artificial Intelligence</option>
+              <option value="Computer Science">Department of Computer Science & Engineering</option>
+              <option value="Aerospace Engineering">Department of Aerospace & Orbital Systems</option>
+              <option value="Robotics & Cybernetics">Department of Robotics & Cybernetics</option>
+              <option value="Data Science & Quantum Computing">Department of Data Science & Quantum Computing</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-program">Degree / Academic Program</label>
+            <select id="reg-program" class="form-select">
+              <option value="B.Tech Space Systems">B.Tech Space Systems Engineering</option>
+              <option value="B.Tech Computer Science">B.Tech Computer Science (Core)</option>
+              <option value="M.Tech Autonomous AI">M.Tech Autonomous AI & Neural Systems</option>
+              <option value="M.Tech Orbital Telemetry">M.Tech Orbital Mechanics & Telemetry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-year">Cadet Academic Year</label>
+            <select id="reg-year" class="form-select">
+              <option value="Year 1 Alpha">Year 1 (Alpha Cadet)</option>
+              <option value="Year 2 Beta" selected>Year 2 (Beta Cadet)</option>
+              <option value="Year 3 Gamma">Year 3 (Gamma Cadet)</option>
+              <option value="Year 4 Delta">Year 4 (Delta Officer)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Areas of Academic & Guild Interest (Select All Applicable)</label>
+            <div class="chip-container">
+              <div class="chip-item selected interest-chip" data-value="Autonomous AI">🤖 Autonomous AI</div>
+              <div class="chip-item interest-chip" data-value="Deep Space Propulsion">🚀 Deep Space Propulsion</div>
+              <div class="chip-item selected interest-chip" data-value="Cybernetics & Systems">⚡ Cybernetics & Systems</div>
+              <div class="chip-item interest-chip" data-value="Holographic UI">🎨 Holographic UI</div>
+              <div class="chip-item interest-chip" data-value="Quantum Algorithms">🔬 Quantum Algorithms</div>
+              <div class="chip-item interest-chip" data-value="Astrophotography">🔭 Astrophotography</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 36px;">
+            <button type="button" class="btn-futuristic btn-secondary-space" id="btn-step3-back">
+              ← PREVIOUS STEP
+            </button>
+            <button type="button" class="btn-futuristic btn-primary-cyan" id="btn-step3-next">
+              INITIATE VERIFICATION →
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STAGE 4: VERIFICATION -->
+      <div class="glass-panel wizard-stage-panel hud-corners hud-corners-tl" id="stage-4-panel" style="display: none; padding: 48px; text-align: center;">
+        <span class="badge-neon badge-gold" style="margin-bottom: 24px;">STAGE 04 • HOLOGRAPHIC VERIFICATION</span>
+        
+        <div style="width: 90px; height: 90px; margin: 0 auto 28px; position: relative; display: flex; align-items: center; justify-content: center;">
+          <div style="position: absolute; inset: 0; border: 2px dashed var(--neon-cyan); border-radius: 50%; animation: orbitRotate 4s linear infinite;"></div>
+          <div style="font-size: 2.2rem; color: var(--neon-cyan);">📡</div>
+        </div>
+
+        <h3 style="font-size: 1.8rem; margin-bottom: 14px;" class="text-gradient-cyan">
+          VALIDATING IDENTITY CREDENTIALS
+        </h3>
+        
+        <div style="height: 6px; width: 100%; max-width: 440px; margin: 24px auto; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden;">
+          <div id="scanning-progress-bar" style="height: 100%; width: 25%; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-violet)); transition: width 0.3s ease;"></div>
+        </div>
+
+        <div id="scan-status-text" style="font-family: var(--font-tech); font-size: 0.95rem; color: var(--text-secondary); letter-spacing: 0.12em; text-transform: uppercase;">
+          TRANSMITTING RECORD TO SPRING DATA JPA / MYSQL REPOSITORY...
+        </div>
+
+        <div id="verify-error-box" style="display: none; margin-top: 24px; padding: 14px 20px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--accent-ruby); border-radius: 8px; color: var(--accent-ruby); font-family: var(--font-tech); font-size: 0.95rem;">
+        </div>
+      </div>
+
+      <!-- STAGE 5: WELCOME SEQUENCE & HOLOGRAPHIC ID CARD -->
+      <div class="wizard-stage-panel" id="stage-5-panel" style="display: none; text-align: center;">
+        <span class="badge-neon badge-emerald" style="margin-bottom: 18px;">INITIALIZATION COMPLETE</span>
+        <h2 style="font-size: 2.3rem; margin-bottom: 8px;" class="text-gradient-cyan">IDENTITY INITIALIZED.</h2>
+        <div style="font-family: var(--font-tech); font-size: 1.2rem; color: var(--text-secondary); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 32px;">
+          WELCOME TO YOUR UNIVERSE.
+        </div>
+
+        <!-- Animated Student Holographic ID Card -->
+        <div class="id-card-hologram">
+          <div class="id-card-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="brand-symbol" style="width: 32px; height: 32px;">
+                <div class="brand-core" style="width: 10px; height: 10px;"></div>
+                <div class="brand-orbit"></div>
+              </div>
+              <span style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.1em;">CAMPUS CONNECT</span>
+            </div>
+            <span class="badge-neon badge-cyan">CADET PASS</span>
+          </div>
+
+          <div class="id-card-body">
+            <div class="id-card-row">
+              <span class="id-card-label">NAME</span>
+              <span class="id-card-val text-gradient-cyan" id="card-student-name">Sriharan V A</span>
+            </div>
+            <div class="id-card-row">
+              <span class="id-card-label">REG NUMBER</span>
+              <span class="id-card-val" id="card-student-reg" style="color: var(--neon-cyan); font-family: var(--font-mono);">RA2511003040029</span>
+            </div>
+            <div class="id-card-row">
+              <span class="id-card-label">DEPARTMENT</span>
+              <span class="id-card-val" id="card-student-dept">Artificial Intelligence</span>
+            </div>
+            <div class="id-card-row">
+              <span class="id-card-label">CADET STATUS</span>
+              <span class="id-card-val" id="card-student-year">Year 2 Beta</span>
+            </div>
+            <div class="id-card-row">
+              <span class="id-card-label">COMMS EMAIL</span>
+              <span class="id-card-val" id="card-student-email" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">user@srmist.edu.in</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+          <button class="btn-futuristic btn-primary-cyan btn-glow-pulse" id="btn-enter-campus" style="font-size: 1rem; padding: 16px 42px;">
+            ENTER CAMPUS UNIVERSE →
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer with Developer Credits -->
+    <footer class="footer-futuristic">
+      <div class="footer-bottom">
+        <div>&copy; 2030 Campus Connect. Initialized on Spring Boot 3.3.4.</div>
+        <div class="footer-team-line">
+          Developed by: Sriharan V A — RA2511003040029 • Shivesh A — RA2511003040028 • KAVIN K — RA2511003040067
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/space-bg.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
